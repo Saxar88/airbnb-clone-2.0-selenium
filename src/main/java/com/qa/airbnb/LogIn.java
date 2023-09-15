@@ -42,9 +42,12 @@ public class LogIn {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Log in']")));
             signUpButton.click();
 
-            driver.findElement(By.id("email")).sendKeys("test-java@test.com");
-            driver.findElement(By.id("password")).sendKeys("test-java-123");
-            driver.findElement(By.xpath("//*[text()='Continue']")).click();
+            WebElement emailField = driver.findElement(By.id("email"));
+            emailField.sendKeys("test-java@test.com");
+            WebElement passwordField = driver.findElement(By.id("password"));
+            passwordField.sendKeys("test-java-123");
+            WebElement continueButton = driver.findElement(By.xpath("//*[text()='Continue']"));
+            continueButton.click();
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Logged in successfully!']")));
 

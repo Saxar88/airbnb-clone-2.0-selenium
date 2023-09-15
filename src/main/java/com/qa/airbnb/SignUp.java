@@ -42,10 +42,14 @@ public class SignUp {
                     .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Sign up']")));
             signUpButton.click();
 
-            driver.findElement(By.id("email")).sendKeys("test-java@test.com");
-            driver.findElement(By.id("name")).sendKeys("Test Java");
-            driver.findElement(By.id("password")).sendKeys("test-java-123");
-            driver.findElement(By.xpath("//*[text()='Continue']")).click();
+            WebElement emailField = driver.findElement(By.id("email"));
+            emailField.sendKeys("test-java@test.com");
+            WebElement nameField = driver.findElement(By.id("name"));
+            nameField.sendKeys("Test Java");
+            WebElement passwordField = driver.findElement(By.id("password"));
+            passwordField.sendKeys("test-java-123");
+            WebElement continueButton = driver.findElement(By.xpath("//*[text()='Continue']"));
+            continueButton.click();
 
             wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[text()='Account created!']")));
 
